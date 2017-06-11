@@ -8,13 +8,14 @@
 	position: relative;
 }
 .selectOption{
-	left: 600px;
+	left: 550px;
 
 }
 #fh1{
     font-family: "Times Header";
     vertical-align: middle;
-    
+   
+
 }
 table {
     border-collapse: collapse;

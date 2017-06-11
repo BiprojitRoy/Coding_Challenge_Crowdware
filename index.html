@@ -3,7 +3,7 @@
 	<head>
 	        
 	        <link rel="stylesheet" type="text/css" href="index.css">
-	        <title>IMDB top 100</title>
+	        <title> IMDB top 100</title>
 	        <meta charset="UTF-8">
 	        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -22,9 +22,10 @@
 
 	<body ng-app="myApp" ng-controller="myCtrl">
 		<div class="md-col-12">
-			<h1 id="fh1">IMDB top 100</h1>
+			<h1 id="fh1">&nbsp &nbsp IMDB top 100</h1>
 			<div class="selectOption">
-				Sort By:
+				<button class="btn btn-primary" data-target="#addLog" data-toggle="modal"> Add new </button>
+				<strong> &nbsp &nbsp Sort By: </strong>
 				<select ng-model="sortColumn">
 					<option value="title"> Title asc  </option>
 					<option value="-title"> Title dsc  </option>
@@ -33,9 +34,9 @@
 					<option value="rank"> Rank asc  </option>
 					<option value="-rank"> Rank dsc  </option>
 				</select>
-				Search:
+				<strong> Search:</strong>
 				<input type="text" ng-model="searchText" placeholder="Search anything">
-				<button class="btn btn-primary" data-target="#addLog" data-toggle="modal"> Add new </button>
+				
 			</div>	
 		</div>
 		<div class="md-col-11">
