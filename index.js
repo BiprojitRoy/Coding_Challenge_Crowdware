@@ -56,9 +56,9 @@ app.controller("myCtrl", function($scope) {
 	 //this function add new item
 	 $scope.addNew=function(){
 	 	$scope.records.push({
-	 		title:$scope.title,
-	 		rank:$scope.rank,
-	 		id: $scope.id
+	 		title:$scope.title2,
+	 		rank:$scope.rank2,
+	 		id: $scope.id2
 	 	});
 
 	 }
