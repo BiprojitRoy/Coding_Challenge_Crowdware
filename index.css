@@ -1,0 +1,39 @@
+.md-col-12{
+    height: 50px;
+    background:linear-gradient(#33cc33,#5cd65c) ;
+
+}
+#fh1,.selectOption{
+	display: inline;
+	position: relative;
+}
+.selectOption{
+	left: 600px;
+
+}
+#fh1{
+    font-family: "Times Header";
+    vertical-align: middle;
+    
+}
+table {
+    border-collapse: collapse;
+    width: 75%;
+
+}
+
+th, td {
+    text-align: left;
+
+    padding: 8px;
+}
+
+tr:nth-child(even){
+	background-color: #d9d9d9;
+}
+td {
+	height: 40px;
+	vertical-align: middle;
+}
+
+        

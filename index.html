@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	        
+	        <link rel="stylesheet" type="text/css" href="index.css">
+	        <title>IMDB top 100</title>
+	        <meta charset="UTF-8">
+	        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	        
+	        <!-- jQuery library -->
+	        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	        
+	        <!-- Latest compiled JavaScript -->
+	        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	        <script src="index.js"></script>
+				
+			
+				        
+	</head>
+
+	<body ng-app="myApp" ng-controller="myCtrl">
+		<div class="md-col-12">
+			<h1 id="fh1">IMDB top 100</h1>
+			<div class="selectOption">
+				Sort By:
+				<select ng-model="sortColumn">
+					<option value="title"> Title asc  </option>
+					<option value="-title"> Title dsc  </option>
+					<option value="id"> ID asc  </option>
+					<option value="-id"> ID dsc  </option>
+					<option value="rank"> Rank asc  </option>
+					<option value="-rank"> Rank dsc  </option>
+				</select>
+				Search:
+				<input type="text" ng-model="searchText" placeholder="Search anything">
+				<button class="btn btn-primary" data-target="#addLog" data-toggle="modal"> Add new </button>
+			</div>	
+		</div>
+		<div>
+			<table  align="center">
+			<tr>
+				<td ng-click="order('title')"><strong>Title</strong></td>
+			  	<td style="text-align: middle"><strong>Rank</strong></td>
+			 	<td style="text-align: middle"><strong>ID</strong></td>
+			 	<td style="text-align: middle"> </td>
+			</tr>
+			<tr ng-repeat="x in records| orderBy:sortColumn | filter : searchText">
+				 <td>{{x.title}}</td>
+				 <td>{{x.rank}}</td>
+				 <td>{{x.id}}</td>
+				 <td> <button class="btn btn-primary" ng-click="sel(x.id)" data-target="#editLog" data-toggle="modal"> edit </button> </td>
+				 <td> <button class="btn btn-primary" ng-click="del(x.id)"> del </button> </td>
+
+			</tr>
+			</table>
+			<div class="modal" id="editLog" tabindex="-1">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-head">
+							<h3 class="modal-title"> Edit</h3>
+							
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal">
+							  	<div class="form-group">
+							    	<label for="title">Title:</label>
+							    	<input type="text" class="form-control"  ng-model="title">
+							  	</div>
+							  	<div class="form-group">
+							    	<label for="rank">Rank:</label>
+							    	<input type="number" class="form-control"  ng-model="rank">
+							  	</div>
+							  	<div class="form-group">
+							    	<label for="id">ID:</label>
+							    	<input type="text" class="form-control"  ng-model="id">
+							  	</div>
+							  	
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button class="btn btn-primary" ng-click="edit()" type="submit" data-dismiss="modal"> Done </button>
+							<button class="btn btn-primary" data-dismiss="modal"> Close </button>
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+			<div class="modal" id="addLog" tabindex="-1">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-head">
+							<h3 class="modal-title"> Add </h3>
+							
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal">
+							  	<div class="form-group">
+							    	<label for="title">Title:</label>
+							    	<input type="text" class="form-control"  ng-model="title">
+							  	</div>
+							  	<div class="form-group">
+							    	<label for="rank">Rank:</label>
+							    	<input type="number" class="form-control"  ng-model="rank">
+							  	</div>
+							  	<div class="form-group">
+							    	<label for="id">ID:</label>
+							    	<input type="text" class="form-control"  ng-model="id">
+							  	</div>
+							  	
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button class="btn btn-primary" ng-click="addNew()" type="submit" data-dismiss="modal"> Save </button>
+							<button class="btn btn-primary" data-dismiss="modal"> Close </button>
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+
+	</body>
+</html>
